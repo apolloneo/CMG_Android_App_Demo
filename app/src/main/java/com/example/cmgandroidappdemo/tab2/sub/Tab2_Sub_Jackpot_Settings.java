@@ -1,8 +1,10 @@
 package com.example.cmgandroidappdemo.tab2.sub;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,9 +34,10 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
     private Spinner spinner_window_qty;
     private ArrayAdapter<CharSequence> spinner_window_qty_adapter;
     private Button button_ok, button_reset;
-    private ArrayList<String> window_effect_code_set = new ArrayList<>();
-    private ArrayList<String> jp_value_set = new ArrayList<>();
+    private ArrayList<String> window_effect_code_set_child = new ArrayList<>();
+    private ArrayList<String> jp_value_set_child = new ArrayList<>();
     private final int spinner_window_effect_code_id = 10000, editText_jp_value_id = 20000;
+    private int window_qty = 1;
 
     @Nullable
     @Override
@@ -46,14 +49,16 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
         spinner_window_qty_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_window_qty.setAdapter(spinner_window_qty_adapter);
         spinner_window_qty.setSelection(0);
+        window_qty = Integer.parseInt(spinner_window_qty.getSelectedItem().toString());
 
         spinner_window_qty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                window_qty = Integer.parseInt(spinner_window_qty.getSelectedItem().toString());
                 LinearLayout ll_row_parent = rootView.findViewById(R.id.jp_setting_row_parent);
                 ll_row_parent.removeAllViewsInLayout();
-                window_effect_code_set.clear();
-                jp_value_set.clear();
+                window_effect_code_set_child.clear();
+                jp_value_set_child.clear();
 
 
                 for (int i = 0; i < pos+1; i++){
@@ -91,7 +96,7 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
 
 
                     String temp_str1[] = spinner_window_effect_cdoe.getSelectedItem().toString().split("-");
-                    window_effect_code_set.add(temp_str1[0]);
+                    window_effect_code_set_child.add(temp_str1[0]);
 
                     spinner_window_effect_cdoe.setSelection(0);
 
@@ -100,8 +105,9 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
                         public void onItemSelected(AdapterView<?> adapterView, View view, int spinnerSelectionPosition, long l) {
                             String window_effect_code_single_selection[] = spinner_window_effect_cdoe.getSelectedItem().toString().split("-");
                             int index = spinner_window_effect_cdoe.getId()-spinner_window_effect_code_id;
-                            window_effect_code_set.set(index,window_effect_code_single_selection[0]);
-                            //Toast.makeText(getContext(),window_effect_code_set.toString(), Toast.LENGTH_SHORT).show();
+                            window_effect_code_set_child.set(index,window_effect_code_single_selection[0]);
+                            //tab2SharedViewModel_sub5.setWindow_effect_set(window_effect_code_set_child);
+                            //Toast.makeText(getContext(),window_effect_code_set_child.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -134,6 +140,25 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
                     InputFilter[] editText_jp_value_input_filter = new InputFilter[1];
                     editText_jp_value_input_filter[0] = new InputFilter.LengthFilter(4);
                     editText_jp_value.setFilters(editText_jp_value_input_filter);
+                    jp_value_set_child.add(editText_jp_value.getText().toString());
+                    editText_jp_value.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+                            int index = editText_jp_value.getId()-editText_jp_value_id;
+                            jp_value_set_child.set(index, editText_jp_value.getText().toString());
+                            Toast.makeText(getContext(),jp_value_set_child.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     //editText_jp_value.setGravity(Gravity.CENTER|Gravity.TOP);
 
                     ll_row.addView(textView_window);
@@ -144,59 +169,10 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
                     ll_row_parent.addView(ll_row);
                 }
 
-                //tab2SharedViewModel_sub5.setWindow_effect_set(window_effect_code_set);
+                //tab2SharedViewModel_sub5.setWindow_effect_set(window_effect_code_set_child);
 
-                /*
-                switch (pos){
-                    case 0:
-                        for (int i = 0; i < pos+1; i++){
-                            LinearLayout ll_row = new LinearLayout(getContext());
-                            LinearLayout.LayoutParams ll_row_params = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT);
-                            ll_row_params.gravity = 11|30;
-                            ll_row.setLayoutParams(ll_row_params);
 
-                            TextView textView_window = new TextView(getContext());
-                            textView_window.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                            textView_window.setText("Window" + Integer.toString((i+1)) + " Effect Code: ");
-                            textView_window.setTextColor(getResources().getColor(R.color.colorBlack, getActivity().getTheme()));
-                            textView_window.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                            textView_window.setGravity(Gravity.CENTER|Gravity.TOP);
-
-                            ll_row.addView(textView_window);
-
-                            ll_row_parent.addView(ll_row);
-                        }
-                        break;
-                    case 1:
-
-                        for (int i = 0; i < pos+1; i++){
-                            LinearLayout ll_row = new LinearLayout(getContext());
-                            LinearLayout.LayoutParams ll_row_params = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT);
-                            ll_row_params.gravity = 11|30;
-                            ll_row.setLayoutParams(ll_row_params);
-
-                            TextView textView_window = new TextView(getContext());
-                            textView_window.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                            textView_window.setText("Window" + Integer.toString((i+1)) + " Effect Code: ");
-                            textView_window.setTextColor(getResources().getColor(R.color.colorBlack, getActivity().getTheme()));
-                            textView_window.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
-                            textView_window.setGravity(Gravity.CENTER|Gravity.TOP);
-
-                            ll_row.addView(textView_window);
-
-                            ll_row_parent.addView(ll_row);
-                        }
-
-                        break;
-                        default:
-
-                }
-                */
-                //Toast.makeText(getContext(), "windowEffectSet Size: " + window_effect_code_set.size(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "windowEffectSet Size: " + window_effect_code_set_child.size(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -212,13 +188,16 @@ public class Tab2_Sub_Jackpot_Settings extends Fragment {
         button_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),window_effect_code_set.toString(),Toast.LENGTH_SHORT).show();
+
                 //int window_qty = Integer.getInteger(spinner_window_qty.getSelectedItem().toString());
-                tab2SharedViewModel_sub5.setWindow_effect_set(window_effect_code_set);
+                tab2SharedViewModel_sub5.setWindow_effect_set(window_effect_code_set_child);
+                tab2SharedViewModel_sub5.setJp_value_set(jp_value_set_child);
                 tab2SharedViewModel_sub5.setWindow_qty(spinner_window_qty.getSelectedItem().toString());
+                //spinner_window_qty.setSelection(window_qty_pos);
 
-
-                //window_effect_code_set.clear();
+                Toast.makeText(getContext(),"size: " + Integer.toString(jp_value_set_child.size()) +
+                        jp_value_set_child.toString(),Toast.LENGTH_SHORT).show();
+                //window_effect_code_set_child.clear();
 
             }
         });

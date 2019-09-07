@@ -23,8 +23,9 @@ import java.util.ArrayList;
 public class Tab2_Item extends Fragment {
     private SharedViewModelUnderTab2 tab2SharedViewModel;
     private TextView textView_Protocol;
-    private ArrayList<String> window_effect_code_set = new ArrayList<>();
-    private ArrayList<String> jp_value_set = new ArrayList<>();
+    private ArrayList<String> window_effect_code_set_parent = new ArrayList<>();
+    private ArrayList<String> jp_value_set_parent = new ArrayList<>();
+    //private int windowQty = 1;
 
     @Nullable
     @Override
@@ -131,16 +132,22 @@ public class Tab2_Item extends Fragment {
                 String str_Protocol = textView_Protocol.getText().toString();
                 String mfc_Code = str_Protocol.substring(1,3);
                 int window_qty = Integer.valueOf(charSequence.toString());
+                //windowQty = window_qty;
                 String str1 = "", str2="";
                 int pos1;
                 if (mfc_Code.equals("CM")){
                     pos1 = str_Protocol.indexOf("<W1>");
                     str1 = str_Protocol.substring(0,pos1);
                     for (int i = 0; i < window_qty; i++){
-                        if (!window_effect_code_set.isEmpty()) {
-                            str2 = str2 + "<W" + Integer.toString(i + 1) + "><" + window_effect_code_set.toArray()[i] + ">";
+                        if (!window_effect_code_set_parent.isEmpty()) {
+                            str2 = str2 + "<W" + Integer.toString(i + 1) + "><" + window_effect_code_set_parent.toArray()[i] + ">";
                         }else{
                             str2 = str2 + "<W" + Integer.toString(i + 1) + "><FS>";
+                        }
+                        if (!jp_value_set_parent.isEmpty()){
+                            str2 = str2 + jp_value_set_parent.toArray()[i];
+                        }else {
+                            str2 = str2 + "88.8";
                         }
                     }
                     str2 = str2 + "<E>";
@@ -153,16 +160,35 @@ public class Tab2_Item extends Fragment {
         tab2SharedViewModel.getWindow_effect_set().observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
             @Override
             public void onChanged(ArrayList<String> strings) {
-                window_effect_code_set.clear();
-                window_effect_code_set = strings;
+                window_effect_code_set_parent.clear();
+                window_effect_code_set_parent = (ArrayList<String>) strings.clone();
+
+                //String str_Protocol = textView_Protocol.getText().toString();
+                //String mfc_Code = str_Protocol.substring(1,3);
+                //int window_qty = windowQty;
+                //String str1 = "", str2="";
+                //int pos1;
+                //if (mfc_Code.equals("CM")){
+                //    pos1 = str_Protocol.indexOf("<W1>");
+                //    str1 = str_Protocol.substring(0,pos1);
+                //    for (int i = 0; i < window_qty; i++){
+                //        if (!window_effect_code_set_parent.isEmpty()) {
+                //            str2 = str2 + "<W" + Integer.toString(i + 1) + "><" + window_effect_code_set_parent.toArray()[i] + ">";
+                //        }else{
+                //            str2 = str2 + "<W" + Integer.toString(i + 1) + "><FS>";
+                //        }
+                //    }
+                //    str2 = str2 + "<E>";
+                //}
+                //textView_Protocol.setText(str1+str2);
             }
         });
 
         tab2SharedViewModel.getJp_value_set().observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
             @Override
             public void onChanged(ArrayList<String> strings) {
-                jp_value_set.clear();
-                jp_value_set = strings;
+                jp_value_set_parent.clear();
+                jp_value_set_parent = (ArrayList<String>) strings.clone();
             }
         });
 

@@ -19,7 +19,7 @@
     <string name="select_mfc_code_title">Select Manufacturer Code</string>
     <string name="mfc_code_cm">CM</string>
     <string name="mfc_code_pl">PL</string>
-    <string name="default_protocol"><![CDATA[<CMCMLT><ID000001><L1><FS>88.8<E>]]></string>
+    <string name="default_protocol"><![CDATA[<CMCMLT><ID000001><W1><FS>88.8<E>]]></string>
     <string name="default_sign_id">000000</string>
     <string name="set_jackpot_window_qty">Set Jackpot Window Qty:</string>
     <string name="window_1_effect_code">Window 1 Effect Code:</string>
