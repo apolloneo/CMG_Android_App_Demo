@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:gravity="center|top">
+
+    <EditText
+        android:id="@+id/editText_Sign_ID"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/default_sign_id"
+        android:textSize="18sp"
+        android:maxLength="6"
+        android:textAlignment="textEnd"/>
+
+    <Button
+        android:id="@+id/button_SubmitSignID"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:text="OK"
+        android:textSize="18sp"/>
+</LinearLayout>

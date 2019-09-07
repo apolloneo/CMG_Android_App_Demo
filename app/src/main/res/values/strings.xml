@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">CMG Android App Demo</string>
+    <string name="tab_text_1">Tab 1 Main</string>
+    <string name="tab_text_2">Tab 2 Build Protocol</string>
+    <string name="tab_text_3">Tab 3 TBD</string>
+    <string name="tab2_sub_1">MFC Code</string>
+    <string name="tab2_sub_2">State Code</string>
+    <string name="tab2_sub_3">Sign ID #</string>
+    <string name="tab2_sub_4">Panel Effect Code</string>
+    <string name="tab2_sub_5">Jackpot Settings</string>
+    <string name="tab2_sub_6">Auto Send Settings</string>
+    <string name="tab1_serial_port_setup_title">Select a USB to serial device from drop down menu</string>
+    <string name="connect_button_caption_connect">connect</string>
+    <string name="connect_button_caption_disconnect">disconnect</string>
+    <string name="your_serial_port_tx_and_rx_data_will_be_displayed_here">Your serial port TX and RX data will be displayed here!</string>
+    <string name="type_your_message_here">Type your message here!</string>
+    <string name="clear_feedback">Clear Feedback</string>
+    <string name="send">Send</string>
+    <string name="select_mfc_code_title">Select Manufacturer Code</string>
+    <string name="mfc_code_cm">CM</string>
+    <string name="mfc_code_pl">PL</string>
+    <string name="default_protocol"><![CDATA[<CMCMLT><ID000001><L1><FS>88.8<E>]]></string>
+    <string name="default_sign_id">000000</string>
+    <string name="set_jackpot_window_qty">Set Jackpot Window Qty:</string>
+    <string name="window_1_effect_code">Window 1 Effect Code:</string>
+    <string name="window_1_jackpot_value">Window 1 Jackpot Value:</string>
+    <string name="window_2_effect_code">Window 2 Effect Code:</string>
+    <string name="window_2_jackpot_value">Window 2 Jackpot Value:</string>
+    <string name="window_3_effect_code">Window 3 Effect Code:</string>
+    <string name="window_3_jackpot_value">Window 3 Jackpot Value:</string>
+    <string name="window_4_effect_code">Window 4 Effect Code:</string>
+    <string name="window_4_jackpot_value">Window 4 Jackpot Value:</string>
+    <string name="window_5_effect_code">Window 5 Effect Code:</string>
+    <string name="window_5_jackpot_value">Window 5 Jackpot Value:</string>
+    <string name="window_6_effect_code">Window 6 Effect Code:</string>
+    <string name="window_6_jackpot_value">Window 6 Jackpot Value:</string>
+
+    <string-array name="panel_effect_code_1">
+        <item>Null-No panel effect code</item>
+        <item>A-Auto sensor mode</item>
+        <item>D-Day light mode</item>
+        <item>N-Night mode</item>
+        <item>L-Full brightness mode</item>
+    </string-array>
+
+    <string-array name="panel_effect_code_2">
+        <item>Null-No panel effect code</item>
+        <item>A-L=On  R=Off</item>
+        <item>B-L=Flash  R=On</item>
+        <item>C-L=Off  R=On</item>
+        <item>D-L=On  R=Flash</item>
+        <item>E-Alternate Flash</item>
+        <item>F-Whole Panel Flash</item>
+        <item>G-L=On  R=Off</item>
+        <item>H-L=Off  R=On</item>
+        <item>Y-Full Panel On</item>
+        <item>Z-Full Panel Off</item>
+    </string-array>
+
+    <string-array name="state_code">
+        <item>Choose a state code here!</item>
+        <item>Alabama-AL</item>
+        <item>Alaska-AK</item>
+        <item>Arizona-AZ</item>
+        <item>Arkansas-AR</item>
+        <item>California-CA</item>
+        <item>Colorado-CO</item>
+        <item>Connecticut-CT</item>
+        <item>Delaware-DE</item>
+        <item>District of Columbia-DC</item>
+        <item>Florida-FL</item>
+        <item>Georgia-GA</item>
+        <item>Hawaii-HI</item>
+        <item>Idaho-ID</item>
+        <item>Illinois-IL</item>
+        <item>Indiana-IN</item>
+        <item>Iowa-IA</item>
+        <item>Kansas-KS</item>
+        <item>Kentucky-KY</item>
+        <item>Louisiana-LA</item>
+        <item>Maine-ME</item>
+        <item>Maryland-MD</item>
+        <item>Massachusetts-MA</item>
+        <item>Michigan-MI</item>
+        <item>Minnesota-MN</item>
+        <item>Mississippi-MS</item>
+        <item>Missouri-MO</item>
+        <item>Montana-MT</item>
+        <item>Nebraska-NE</item>
+        <item>Nevada-NV</item>
+        <item>New Hampshire-NH</item>
+        <item>New Jersey-NJ</item>
+        <item>New Mexico-NM</item>
+        <item>New York-NY</item>
+        <item>North Carolina-NC</item>
+        <item>North Dakota-ND</item>
+        <item>Ohio-OH</item>
+        <item>Oklahoma-OK</item>
+        <item>Oregon-OR</item>
+        <item>Pennsylvania-PA</item>
+        <item>Rhode Island-RI</item>
+        <item>South Carolina-SC</item>
+        <item>South Dakota-SD</item>
+        <item>Tennessee-TN</item>
+        <item>Texas-TX</item>
+        <item>Utah-UT</item>
+        <item>Vermont-VT</item>
+        <item>Virginia-VA</item>
+        <item>Washington State-WA</item>
+        <item>West Virginia-WV</item>
+        <item>Wisconsin-WI</item>
+        <item>Wyoming-WY</item>
+        <item>Puerto Rico-PR</item>
+
+    </string-array>
+
+    <string-array name="jackpot_window_qty">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="window_effect_code">
+        <item>FS-Static Digits</item>
+        <item>FF-Flashing Digits</item>
+    </string-array>
+</resources>

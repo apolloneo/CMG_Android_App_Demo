@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="@string/set_jackpot_window_qty"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinner_WindowQty"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/jp_setting_row_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/jp_setting_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:gravity="center|top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/window_1_effect_code"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical|end"
+                    />
+                <Spinner
+                    android:id="@+id/spinner_Window1_Effect_Code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/window_1_jackpot_value"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical|end"
+                    />
+                <EditText
+                    android:id="@+id/editText_Window1_JP_Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_jp_setting_ok"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="OK"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            />
+        <Button
+            android:id="@+id/button_jp_setting_reset"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="RESET"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

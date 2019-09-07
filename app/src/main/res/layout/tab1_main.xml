@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView_Tab1_SerialPortSetup"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="@string/tab1_serial_port_setup_title"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/all_around_border_background"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <Spinner
+            android:id="@+id/spinner_USB_to_Serial_Device"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
+
+        <Spinner
+            android:id="@+id/spinner_Baudrate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/Button_Connect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/connect_button_caption_connect"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_Feedback"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:hint="@string/your_serial_port_tx_and_rx_data_will_be_displayed_here"
+        android:scrollbars="vertical"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editText_Input_Msg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/all_around_border_background"
+        android:hint="@string/type_your_message_here" />
+
+    <LinearLayout
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <Button
+            android:id="@+id/Button_Clear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/clear_feedback"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/Button_Send"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/send"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
